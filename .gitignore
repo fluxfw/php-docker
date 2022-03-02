@@ -1,0 +1,6 @@
+*
+!.local
+!.local/**
+!.gitignore
+!.gitlab-ci.yml
+!metadata.json
