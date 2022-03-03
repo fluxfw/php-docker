@@ -2,7 +2,6 @@
 
 set -e
 
-docker pull php:cli-alpine
-echo
+#docker pull php:cli-alpine
 
 docker run --rm -it -u `id -u`:`id -g` -v "$PWD":/code -w /code --entrypoint php php:cli-alpine "$@"
