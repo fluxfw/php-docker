@@ -3,4 +3,6 @@
 !.local/**
 !.gitignore
 !.gitlab-ci.yml
+!bin
+!bin/**
 !metadata.json
