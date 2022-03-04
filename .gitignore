@@ -1,6 +1,7 @@
 *
 !.local
 !.local/**
+!.dockerignore
 !.gitignore
 !.gitlab-ci.yml
 !bin
