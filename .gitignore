@@ -1,9 +1,10 @@
 *
 !.local
 !.local/**
+!bin
+!bin/**
 !.dockerignore
 !.gitignore
 !.gitlab-ci.yml
-!bin
-!bin/**
 !metadata.json
+!README.md
