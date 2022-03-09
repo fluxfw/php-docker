@@ -2,6 +2,9 @@
 
 set -e
 
-#docker pull php:cli-alpine
+if [ -z `command -v run-in-docker` ]; then
+    echo "Please install flux-docker-utils"
+    exit 1
+fi
 
-docker run --rm -it -u `id -u`:`id -g` -v "$PWD":/code -w /code --entrypoint php php:cli-alpine "$@"
+run-in-docker php:cli-alpine php "$@"
