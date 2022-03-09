@@ -7,4 +7,4 @@ if [ -z `command -v run-in-docker` ]; then
     exit 1
 fi
 
-run-in-docker composer:latest composer "$@"
+run-in-docker php:cli-alpine sh "$@"
