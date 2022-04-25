@@ -3,7 +3,7 @@
 set -e
 
 if [ -z `command -v install-project-to-home-local-bin` ]; then
-    echo "Please install flux-docker-utils"
+    echo "Please install flux-shell-utils"
     exit 1
 fi
 
