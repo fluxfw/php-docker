@@ -1,1 +1,4 @@
 *
+!.local
+!.local/**
+!bin/install-to-home-local-bin.sh

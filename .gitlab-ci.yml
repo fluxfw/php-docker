@@ -1,10 +1,43 @@
 stages:
+    - build
+    - publish
     - repository
+
+default:
+    image: docker:latest
+    before_script:
+        - DOCKER_TAG=${CI_COMMIT_REF_NAME/main/latest}
+        - echo -n $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
+        - if [ -n "$DOCKER_REGISTRY_URL" ]; then echo -n $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USER --password-stdin $DOCKER_REGISTRY_URL; fi
+    after_script:
+        - docker logout $CI_REGISTRY
+        - if [ -n "$DOCKER_REGISTRY_URL" ]; then docker logout $DOCKER_REGISTRY_URL; fi
+
+build:
+    stage: build
+    script:
+        - docker build . --pull --build-arg COMMIT_SHA=$CI_COMMIT_SHA -t $CI_REGISTRY_IMAGE:$DOCKER_TAG
+        - docker push $CI_REGISTRY_IMAGE:$DOCKER_TAG
+    only:
+        - branches
+        - tags
+
+publish:
+    stage: publish
+    script:
+        - docker pull $CI_REGISTRY_IMAGE:$DOCKER_TAG
+        - docker tag $CI_REGISTRY_IMAGE:$DOCKER_TAG $DOCKER_REGISTRY_URL/flux-php-docker:$DOCKER_TAG
+        - docker push $DOCKER_REGISTRY_URL/flux-php-docker:$DOCKER_TAG
+    only:
+        - main
+        - tags
 
 flux-publish-utils:
     stage: repository
     image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/flux-publish-utils:latest
+    before_script: [ ]
     script:
         - "false"
+    after_script: [ ]
     only:
         - main
