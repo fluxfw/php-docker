@@ -1,5 +1,6 @@
 stages:
     - build
+    - build-artifact
     - publish
     - repository
 
@@ -18,6 +19,18 @@ build:
     script:
         - docker build . --pull --build-arg COMMIT_SHA=$CI_COMMIT_SHA -t $CI_REGISTRY_IMAGE:$DOCKER_TAG
         - docker push $CI_REGISTRY_IMAGE:$DOCKER_TAG
+    only:
+        - branches
+        - tags
+
+create-gitlab-artifact-from-build:
+    stage: build-artifact
+    image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/flux-docker-gitlab-build-artifact:latest
+    script:
+        - create-gitlab-artifact-from-docker-build $CI_REGISTRY_IMAGE:$DOCKER_TAG /flux-php-docker
+    artifacts:
+        paths:
+            - flux-php-docker-build.tar.gz
     only:
         - branches
         - tags
