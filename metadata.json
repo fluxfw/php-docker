@@ -5,5 +5,5 @@
         "docker",
         "php"
     ],
-    "homepage": "https://github.com/fluxapps/flux-php-docker"
+    "homepage": "https://github.com/flux-eco/flux-php-docker"
 }
