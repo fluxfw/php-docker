@@ -5,6 +5,5 @@
 !bin/**
 !.dockerignore
 !.gitignore
-!.gitlab-ci.yml
 !metadata.json
 !README.md
