@@ -13,13 +13,13 @@ Run php in a docker container without install php on host
 ### php
 
 ```shell
-php ...
+php-docker ...
 ```
 
 ### composer
 
 ```shell
-composer ...
+composer-docker ...
 ```
 
 ### php-sh
