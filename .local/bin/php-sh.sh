@@ -2,4 +2,4 @@
 
 set -e
 
-run-in-docker php:cli-alpine sh "$@"
+run-in-docker php:cli-alpine sh . "$@"

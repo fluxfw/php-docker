@@ -2,4 +2,4 @@
 
 set -e
 
-run-in-docker composer:latest composer "$@"
+run-in-docker composer:latest composer . "$@"
