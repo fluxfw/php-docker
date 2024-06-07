@@ -1,29 +1,31 @@
-# flux-php-docker
-
-Run php in a docker container without install php on host
+# php-docker
 
 ## Installation
 
-```shell
-./bin/install-to-home-local-bin.sh
-```
+Add the files in [HOST_PATH](HOST_PATH) to your PATH
 
 ## Commands
 
-### php
+### php-docker-composer
 
 ```shell
-php-docker ...
+php-docker-composer ...
 ```
 
-### composer
+### php-docker-php
 
 ```shell
-composer-docker ...
+php-docker-php ...
 ```
 
-### php-sh
+### php-docker-sh
 
 ```shell
-php-sh
+php-docker-sh ...
+```
+
+### php-docker-sh-as-root
+
+```shell
+php-docker-sh-as-root ...
 ```

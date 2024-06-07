@@ -1,9 +1,9 @@
 *
-!.local
-!.local/**
-!bin
-!bin/**
-!.dockerignore
+!HOST_PATH
+!HOST_PATH/**
 !.gitignore
-!metadata.json
+!composer.sh
+!php.sh
 !README.md
+!sh.sh
+!sh-as-root.sh

@@ -1,9 +1,0 @@
-{
-    "description": "Run php in a docker container without install php on host",
-    "topics": [
-        "composer",
-        "docker",
-        "php"
-    ],
-    "homepage": ""
-}
